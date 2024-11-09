@@ -3,19 +3,53 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #FBF0DA;
+  --foreground: #1E1005;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: white) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  
+    --background: #ffffff;
+    --foreground: #171717;
+   
   }
 }
+
 
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+.img{
+  background-image: url('https://cdn.prod.website-files.com/66de2f1572bcf866302fd41c/66de31ac32194f6e0e192eed_home_img_1-p-1600.webp');
+}
+
+/* For Webkit Browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #171717; /* Color of the scrollbar thumb */
+  border-radius: 6px; /* Roundness of the scrollbar thumb */
+  border: 3px solid #ffffff; /* Space around the scrollbar thumb */
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0; /* Color of the scrollbar track */
+}
+
+/* For Firefox */
+body {
+  scrollbar-width: thin; /* "auto" or "thin" */
+  scrollbar-color: #171717 #f0f0f0; /* thumb color, track color */
+}
+
+.outline-text span {
+  display: inline-block;
+  color: transparent; /* Initial color as transparent */
+  text-shadow: 0 0 5px #ff69b4; /* Outline effect with shadow */
+  transition: color 0.5s ease, text-shadow 0.5s ease; /* Smooth fill transition */
 }
