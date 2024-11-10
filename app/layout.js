@@ -3,12 +3,12 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 
 const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
+  src: "./fonts/Aeonik-Medium.ttf",
   variable: "--font-geist-sans",
-  weight: "100 900",
+  weight: "400 500",
 });
 const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
+  src: "./fonts/PPFragment-SerifRegular.ttf",
   variable: "--font-geist-mono",
   weight: "100 900",
 });
