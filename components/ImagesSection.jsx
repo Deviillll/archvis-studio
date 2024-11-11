@@ -16,9 +16,9 @@ const ImagesSection = () => {
         <div
           className="w-[70vw] h-72 md:w-[35vw] md:h-[80vh]  mx-auto mt-[50%] md:mt-0 md:translate-y-[80%] "
           data-scroll
-          data-scroll-speed="0.1"
+          data-scroll-speed="0"
         >
-          <div className="bg-green-600 w-full h-full rounded-sm"></div>
+          <div className="bg-black/80 w-full h-full rounded-sm"></div>
         </div>
         {/* small imgs left and right */}
         <div className="w-full md:flex justify-between">
@@ -27,21 +27,28 @@ const ImagesSection = () => {
             data-scroll
             data-scroll-speed="0.4"
           >
-            <div className="bg-black/80 w-full h-full mt-[70%] md:mt-0 md:translate-y-[80%]"></div>
+            <div className="bg-black/80 w-full h-full mt-[70%] md:mt-0 md:translate-y-[60%]"></div>
           </div>
           <div
             className="w-32 h-32 md:w-52 md:h-52 rounded-sm ml-[60%] md:ml-0"
             data-scroll
             data-scroll-speed="0.9"
           >
-            <div className="bg-black/80 w-full h-full mt-[70%] md:mt-0 md:translate-y-[80%]"></div>
+            <div className="bg-black/80 w-full h-full mt-[70%] md:mt-0 md:translate-y-[60%]"></div>
           </div>
         </div>
         {/* last center img */}
         <div
-          className="w-52 h-52 mx-auto translate-y-[80%]  "
+          className="w-52 h-52 ml-[45%] md:mx-0 md:ml-[70vw] translate-y-[80%]  "
           data-scroll
           data-scroll-speed="0.6"
+        >
+          <div className="bg-black/80 w-full h-full rounded-sm "></div>
+        </div>
+        <div
+          className="w-52 h-52 ml-[15vw] translate-y-[80%]  "
+          data-scroll
+          data-scroll-speed=".8"
         >
           <div className="bg-black/80 w-full h-full rounded-sm "></div>
         </div>
