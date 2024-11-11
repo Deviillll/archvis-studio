@@ -1,17 +1,16 @@
-"use client";
-import LoadingText from "@/components/LoadingText";
+import About from "@/components/About";
+import ImagesSection from "@/components/ImagesSection";
 import SaiseiStyleText from "@/components/SaiseiStyleText";
-import TextAnimation from "@/components/TextAnimaion";
-import React from "react";
 
 const Home = () => {
   return (
-    <div>
-      {/* <LoadingText />
-      <LoadingText />
-      <LoadingText /> */}
-      {/* <TextAnimation /> */}
+    <div className="w-screen overflow-x-hidden">
+      {/* heor  */}
       <SaiseiStyleText />
+      {/* about us section */}
+      <About />
+      {/* images showscase section */}
+      <ImagesSection />
     </div>
   );
 };
