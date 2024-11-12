@@ -46,7 +46,7 @@ const TextOne = () => {
   return (
     <div>
       <svg
-        className=" svg w-[160vw]   sm:w-[150vw] md:w-[70vw] lg-w-[80vw] xl:w-[100vw] h-20 sm:h-24 md:h-28 lg:h-32 xl:h-40"
+        className=" svg w-[160vw] text-left  sm:w-[150vw] md:w-[70vw] lg-w-[80vw] xl:w-[110vw] 2xl:w-[100vw] h-20 sm:h-24 md:h-28 lg:h-32 xl:h-40"
         ref={svgRef}
         width="1200"
         height="150.502"
