@@ -6,7 +6,7 @@ const LoadingBar = () => {
   const lineRef = useRef(null);
   useEffect(() => {
     gsap.to(lineRef.current, {
-      delay: 0.7,
+      delay: 1,
       width: "100%",
       duration: 1,
       ease: "power3.inOut",

@@ -2,11 +2,12 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Projects from "./Projects";
 gsap.registerPlugin(ScrollTrigger);
 
 const TextAnimaion = () => {
   const textRef = useRef(null);
-
+  const productRef = useRef(null);
   useEffect(() => {
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -19,10 +20,10 @@ const TextAnimaion = () => {
 
     // Animation for character movement (translateY and fontSize)
     tl.to(
-      ".anima",
+      textRef.current,
       {
         duration: 5,
-        translateY: "300%",
+        translateY: "200%",
         fontSize: "14vw",
       },
       "same"
@@ -49,7 +50,7 @@ const TextAnimaion = () => {
         ".blur-effect",
         {
           filter: "blur(0px)",
-          duration: 3, // Blur completes earlier
+          duration: 2, // Blur completes earlier
         },
         "same"
       )
@@ -78,62 +79,68 @@ const TextAnimaion = () => {
   });
 
   return (
-    <div
-      ref={textRef}
-      className="uppercase text-[0px] text-center leading-tight -space-y-12"
-    >
-      <div>
-        <span className="anima inline-block blur-effect lrotate rotate-on-axis">
-          t
-        </span>
-        <span className="anima inline-block blur-effect rrotate rotate-on-axis-">
-          h
-        </span>
-        <span className="anima inline-block blur-effect rotate-on-axis-">
-          e
-        </span>
-        <span className="anima inline-block blur-effect rotate-on-axis-">
-          &nbsp;
-        </span>
-        <span className="anima inline-block blur-effect lrotate rotate-on-axis">
-          a
-        </span>
-        <span className="anima inline-block blur-effect rotate-on-axis">r</span>
-        <span className="anima inline-block blur-effect rrotate">t</span>
-        <span className="anima inline-block blur-effect rotate-on-axis-">
-          &nbsp;
-        </span>
-        <span className="anima inline-block blur-effect lrotate rotate-on-axis">
-          o
-        </span>
-        <span className="anima inline-block blur-effect rrotate">f</span>
-      </div>
+    <div className=" ">
+      <div
+        ref={textRef}
+        className="uppercase text-[0px] text-center leading-tight -space-y-12   "
+      >
+        <div>
+          <span className="anima inline-block blur-effect lrotate rotate-on-axis">
+            t
+          </span>
+          <span className="anima inline-block blur-effect rrotate rotate-on-axis-">
+            h
+          </span>
+          <span className="anima inline-block blur-effect rotate-on-axis-">
+            e
+          </span>
+          <span className="anima inline-block blur-effect rotate-on-axis-">
+            &nbsp;
+          </span>
+          <span className="anima inline-block blur-effect lrotate rotate-on-axis">
+            a
+          </span>
+          <span className="anima inline-block blur-effect rotate-on-axis">
+            r
+          </span>
+          <span className="anima inline-block blur-effect rrotate">t</span>
+          <span className="anima inline-block blur-effect rotate-on-axis-">
+            &nbsp;
+          </span>
+          <span className="anima inline-block blur-effect lrotate rotate-on-axis">
+            o
+          </span>
+          <span className="anima inline-block blur-effect rrotate">f</span>
+        </div>
 
-      <div>
-        <span className="anima inline-block blur-effect rotate-on-axis">i</span>
-        <span className="anima inline-block blur-effect rrotate">n</span>
-        <span className="anima inline-block blur-effect rotate-on-axis-">
-          n
-        </span>
-        <span className="anima inline-block blur-effect lrotate rotate-on-axis-">
-          o
-        </span>
-        <span className="anima inline-block blur-effect rotate-on-axis-">
-          v
-        </span>
-        <span className="anima inline-block blur-effect lrotate">a</span>
-        <span className="anima inline-block blur-effect rotate-on-axis- lrotate">
-          t
-        </span>
-        <span className="anima inline-block blur-effect rrotate rotate-on-axis">
-          i
-        </span>
-        <span className="anima inline-block blur-effect lrotate rotate-on-axis-">
-          o
-        </span>
-        <span className="anima inline-block blur-effect rotate-on-axis rrotate">
-          n
-        </span>
+        <div>
+          <span className="anima inline-block blur-effect rotate-on-axis">
+            i
+          </span>
+          <span className="anima inline-block blur-effect rrotate">n</span>
+          <span className="anima inline-block blur-effect rotate-on-axis-">
+            n
+          </span>
+          <span className="anima inline-block blur-effect lrotate rotate-on-axis-">
+            o
+          </span>
+          <span className="anima inline-block blur-effect rotate-on-axis-">
+            v
+          </span>
+          <span className="anima inline-block blur-effect lrotate">a</span>
+          <span className="anima inline-block blur-effect rotate-on-axis- lrotate">
+            t
+          </span>
+          <span className="anima inline-block blur-effect rrotate rotate-on-axis">
+            i
+          </span>
+          <span className="anima inline-block blur-effect lrotate rotate-on-axis-">
+            o
+          </span>
+          <span className="anima inline-block blur-effect rotate-on-axis rrotate">
+            n
+          </span>
+        </div>
       </div>
     </div>
   );

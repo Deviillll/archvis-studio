@@ -47,9 +47,9 @@ const TextTwo = () => {
   return (
     <div>
       <svg
-        className=" svg  text-left  w-[160vw] sm:w-[150vw] md:w-[70vw] lg-w-[80vw] xl:w-[110vw] 2xl:w-[100vw] h-20 sm:h-24 md:h-28 lg:h-32 xl:h-40 2xl:h-48"
+        className=" svg  text-left  w-[160vw]  sm:w-[150vw] md:w-[70vw] lg-w-[80vw] xl:w-[110vw] 2xl:w-[90vw] h-20 sm:h-24 md:h-28 lg:h-32 xl:h-40 2xl:h-48"
         ref={svgRef}
-        width="1200"
+        width="1100"
         height="150.502"
         viewBox="0 0 1100.701 120.502"
         xmlns="http://www.w3.org/2000/svg"

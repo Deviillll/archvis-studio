@@ -12,7 +12,7 @@ const About = () => {
         trigger: ".image",
         start: "top center",
         end: "60% center",
-        scrub: 1,
+        scrub: false,
       },
     });
 
