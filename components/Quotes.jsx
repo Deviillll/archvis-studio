@@ -18,7 +18,7 @@ const Quotes = () => {
       </div>
       <div className="w-full h-full flex flex-col items-end justify-end pb-16 flex-1 relative z-10">
         <p className="w-[30%] tracking-tight leading-tight font-sans font-medium text-[16px]">
-          We embrace the spirit of '一期一会' (Ichi-go ichi-e), recognizing that
+          We embrace the spirit of 一期一会 (Ichi-go ichi-e) recognizing that
           each project presents a unique opportunity to create something
           exceptional. This philosophy guides our practice, instilling a sense
           of meticulous care and attention to detail in every design and
