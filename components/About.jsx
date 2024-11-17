@@ -24,7 +24,7 @@ const About = () => {
   });
 
   return (
-    <div className="h-screen w-screen flex flex-col  justify-between md:flex-row md:justify-between pl-5 my-10">
+    <div className="h-screen w-screen flex flex-col  justify-between md:flex-row md:justify-between pl-5 my-10 ">
       <div className="h-full w-full md:w-[30%]  flex flex-col items-center  md:justify-around  ">
         <div className="md:pl-10 md:my-auto tracking-tight h-28 space-y-1 w-[50%]  md:w-full">
           <h1 className="font-medium text-4xl pl-5 ">آرچ وِز</h1>
@@ -42,7 +42,7 @@ const About = () => {
       </div>
       <div className="h-full w-full md:w-[30%]   ">
         <div className="md:mt-10 text-left h-[50%] w-[95%] md:w-[60%] md:translate-x-32 mt-8  ">
-          <p className="leading-[22px] text-left tracking-tight font-medium text-sm md:text-md">
+          <p className="leading-[22px] text-left tracking-tight font-medium font-serif text-sm md:text-[16px]">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim iusto
             veniam provident veritatis quidem culpa, commodi ad unde cumque hic
             quod atque laudantium similique inventore fugiat et repellendus
