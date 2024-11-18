@@ -29,7 +29,7 @@ const GetInTouch = () => {
   return (
     <div
       ref={imageRef}
-      className="h-screen w-screen flex flex-col  justify-between md:flex-row md:justify-between pl-5 my-2 "
+      className="h-screen w-screen flex flex-col  justify-between md:flex-row md:justify-between pl-5 my-20 "
     >
       <div className="h-full w-full md:w-[30%]  flex flex-col  justify-between  ">
         <div className=" mt-2 tracking-tight h-28 space-y-1 w-[50%]   md:w-full">

@@ -28,7 +28,7 @@ const AboutIntro = () => {
   return (
     <div
       ref={imagesRef}
-      className="h-screen w-screen flex flex-col  justify-between md:flex-row md:justify-between pl-5 my-2 "
+      className="h-screen w-screen flex flex-col  justify-between md:flex-row md:justify-between pl-5 my-20 "
     >
       <div className="h-full w-full  md:w-[40%] pr-5  mt-5">
         <div className="w-[0%] h-52 md:h-[98%] rounded-sm origin-left introImage bg-black/80  "></div>

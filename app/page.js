@@ -1,5 +1,6 @@
 import About from "@/components/About";
 import AboutIntro from "@/components/AboutIntro";
+import Footer from "@/components/Footer";
 import GetInTouch from "@/components/GetInTouch";
 import ImagesSection from "@/components/ImagesSection";
 
@@ -27,6 +28,8 @@ const Home = () => {
       <Quotes />
       {/* get in touch */}
       <GetInTouch />
+      {/* footer */}
+      <Footer />
     </div>
   );
 };
