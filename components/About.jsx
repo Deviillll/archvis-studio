@@ -21,7 +21,8 @@ const About = () => {
       duration: 1,
       ease: "power3.inOut",
     });
-  });
+  }),
+    [];
 
   return (
     <div className="h-screen w-screen flex flex-col  justify-between md:flex-row md:justify-between pl-5 my-10 ">

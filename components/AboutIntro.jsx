@@ -6,11 +6,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const AboutIntro = () => {
-  const imagesRef = useRef(null);
+  const imagesRef1 = useRef(null);
   useEffect(() => {
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: imagesRef.current,
+        trigger: imagesRef1.current,
         start: "top center",
         end: "50% center",
         scrub: false,
@@ -27,7 +27,7 @@ const AboutIntro = () => {
 
   return (
     <div
-      ref={imagesRef}
+      ref={imagesRef1}
       className="h-screen w-screen flex flex-col  justify-between md:flex-row md:justify-between pl-5 my-20 "
     >
       <div className="h-full w-full  md:w-[40%] pr-5  mt-5">

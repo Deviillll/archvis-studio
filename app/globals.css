@@ -3,30 +3,55 @@
 @tailwind utilities;
 
 :root {
-  --background: #FBF0DA;
-  --foreground: #1E1005;
+  --background: #fbf0da;
+  --foreground: #1e1005;
 }
-.body{
+.body {
   font-family: var(--font-geist-sans);
 }
 
 @media (prefers-color-scheme: white) {
   :root {
-  
     --background: #ffffff;
     --foreground: #171717;
-   
   }
 }
-
 
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
-.img{
-  background-image: url('https://cdn.prod.website-files.com/66de2f1572bcf866302fd41c/66de31ac32194f6e0e192eed_home_img_1-p-1600.webp');
+.img {
+  background-image: url("https://cdn.prod.website-files.com/66de2f1572bcf866302fd41c/66de31ac32194f6e0e192eed_home_img_1-p-1600.webp");
+}
+
+.route-link {
+  @apply relative inline-block text-[#FBF0DA] transition-colors duration-300;
+
+  &::before {
+    @apply absolute  bottom-0 h-[1px] w-0 bg-[#FBF0DA] transition-[width]  duration-500 ease-in-out;
+    content: "";
+  }
+
+  &:hover::before {
+    @apply w-full left-0;
+  }
+
+  &:not(:hover)::before {
+    @apply w-0 right-0;
+  }
+}
+.route-link {
+  background: linear-gradient(to right, #fbf0da 50%, #a29685 50%);
+  background-size: 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: 0.4s ease-in-out;
+}
+.route-link:hover {
+  background-position: -100%;
 }
 
 /* For Webkit Browsers (Chrome, Safari) */
@@ -57,6 +82,6 @@ body {
   transition: color 0.5s ease, text-shadow 0.5s ease; /* Smooth fill transition */
 }
 
-.blur-effect{
+.blur-effect {
   filter: blur(45px);
 }

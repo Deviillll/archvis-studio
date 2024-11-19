@@ -7,6 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const ServiceIntro = () => {
   const container = useRef(null);
+  const image = useRef(null);
 
   useEffect(() => {
     const tl = gsap.timeline({
@@ -34,7 +35,7 @@ const ServiceIntro = () => {
 
     // Animation for the second div image and texts
     tl.from(
-      ".image",
+      image.current,
       {
         width: 0,
 
@@ -83,7 +84,7 @@ const ServiceIntro = () => {
           <h1 className="tracking-tighter">IN</h1>
         </div>
         <div className="w-72 h-[120px]  mb-4 origin-left">
-          <div className="w-full h-full image bg-black/80"></div>
+          <div ref={image} className="w-full h-full image bg-black/80"></div>
         </div>
         <div className="text2">
           <h1 className="tracking-tighter">Every</h1>
