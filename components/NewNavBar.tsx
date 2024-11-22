@@ -15,28 +15,15 @@ const data = [
 const Navbar = () => {
   const [show, setShow] = useState(true);
   const [open, setOpen] = useState(false);
-  const [displayMenu, setDisplayMenu] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false); // For animation guard
   const lastScrollY = useRef(0);
   const linksRef = useRef([]);
-  const containerRef = useRef([]);
+  const containerParentRef = useRef(null);
   const leftRef = useRef(null);
   const rightRef = useRef(null);
 
   useEffect(() => {
-    gsap.from(".line1", {
-      delay: 1,
-      duration: 1,
-      width: 0,
-      ease: "circ.inOut",
-    });
-    gsap.from(".line2", {
-      delay: 1.1,
-      duration: 1,
-      width: 0,
-      opacity: 0,
-      ease: "circ.inOut",
-    });
-
+    // Navbar scroll behavior
     const handleScroll = () => {
       if (window.scrollY > lastScrollY.current) {
         setShow(false);
@@ -47,61 +34,68 @@ const Navbar = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   useEffect(() => {
+    const tl = gsap.timeline({
+      onStart: () => setIsAnimating(true), // Disable interaction during animation
+      onComplete: () => setIsAnimating(false),
+    });
+
     if (open) {
-      setDisplayMenu(true);
-      const tl = gsap.timeline();
       tl.fromTo(
         leftRef.current,
         { width: 0 },
-        { width: "50%", duration: 2, ease: "expo.inOut" },
+        { width: "50%", duration: 1.5, ease: "expo.inOut" },
         "same"
-      )
-        .fromTo(
-          rightRef.current,
-          { width: 0 },
-          { width: "50%", duration: 2, ease: "expo.inOut" },
-          "same"
-        )
-        .from(
-          linksRef.current,
-          {
-            delay: 1,
-            y: 80,
-            stagger: 0.1,
-            duration: 1,
-            ease: "sine.inOut",
-          },
-          "same"
-        );
+      ).fromTo(
+        rightRef.current,
+        { width: 0 },
+        { width: "50%", duration: 1.5, ease: "expo.inOut" },
+        "same"
+      );
+      // .from(
+      //   linksRef.current,
+      //   {
+      //     y: 80,
+      //     stagger: 0.1,
+      //     duration: 1,
+      //     ease: "power4.out",
+      //   },
+      //   "same"
+      // );
     } else {
-      const tl = gsap.timeline({
-        onComplete: () => {
-          setTimeout(() => setDisplayMenu(false), 1500);
-        },
-      });
+      // tl.fromTo(
+      //   linksRef.current,
+      //   { y: 0 },
+      //   {
+      //     y: 80,
+      //     stagger: 0.1,
+      //     duration: 0.5,
+      //     ease: "power4.in",
+      //   },
+      //   "close"
+      // )
       tl.fromTo(
         leftRef.current,
         { width: "50%" },
         { width: 0, duration: 1.5, ease: "expo.inOut" },
-        "same"
+        "close+=0.3"
       ).fromTo(
         rightRef.current,
         { width: "50%" },
         { width: 0, duration: 1.5, ease: "expo.inOut" },
-        "same"
+        "close+=0.3"
       );
     }
   }, [open]);
 
   return (
     <div className="relative">
+      {/* Navbar */}
       <div>
         <div
           className={`flex w-screen text-[#FBF0DA] fixed z-50 mix-blend-difference px-5 items-center h-28 ease-in-out transition-transform duration-300 ${
@@ -115,7 +109,9 @@ const Navbar = () => {
             <div className="font-medium text-xs">EST - 2021</div>
             <div
               className="space-y-2 cursor-pointer hamburger absolute top-[45px] right-10 flex flex-col h-24 justify-start items-center"
-              onClick={() => setOpen((prev) => !prev)}
+              onClick={() => {
+                if (!isAnimating) setOpen(true); // Prevent toggling during animation
+              }}
             >
               <div className="h-[1px] w-8 bg-[#FBF0DA] line1"></div>
               <div className="h-[1px] w-8 bg-[#FBF0DA] line2"></div>
@@ -124,12 +120,17 @@ const Navbar = () => {
           <LoadingBar />
         </div>
       </div>
-      {/* left and right divs */}
+
+      {/* Parent Container */}
       <div
-        className={`w-screen h-screen fixed top-0 left-0 z-50 flex justify-between ${
-          displayMenu ? "visible" : "invisible"
-        }`}
+        ref={containerParentRef}
+        className="w-screen h-screen fixed top-0 left-0 z-50 flex justify-between"
+        style={{
+          display: open || isAnimating ? "flex" : "none", // Keep visible during animations
+          pointerEvents: open ? "auto" : "none", // Disable interaction when closed
+        }}
       >
+        {/* Left Div */}
         <div
           ref={leftRef}
           className="bg-[#FBF0DA] h-full flex flex-col justify-center origin-left"
@@ -137,7 +138,6 @@ const Navbar = () => {
           <div>
             {data.map((item, index) => (
               <div
-                ref={(el) => (containerRef.current[index] = el)}
                 key={item.title}
                 className={`h-24 nav-link group route overflow-hidden nav-link-after`}
               >
@@ -147,7 +147,7 @@ const Navbar = () => {
                 >
                   <div className="flex gap-6 justify-start h-full w-full items-center">
                     <span>({index + 1})</span>
-                    <div className="">
+                    <div>
                       <h1
                         className={`text-[4vw] uppercase group-hover:translate-x-5 transition-transform duration-300 ease-in-out`}
                       >
@@ -165,19 +165,34 @@ const Navbar = () => {
             ))}
           </div>
         </div>
+
+        {/* Right Div */}
         <div
           ref={rightRef}
           className="bg-[#1E1005] text-[#FBF0DA] h-full origin-right relative"
         >
-          <div className="translate-y-8 translate-x-[80%]">
-            <button
-              className=" text-sm text-center font-medium uppercase px-3 py-[2px] bg-[#9C7443] rounded-2xl"
-              onClick={() => setOpen((prev) => !prev)}
-            >
-              Close
-            </button>
+          <div>
+            {open ? (
+              <button
+                className="absolute top-10 right-8 text-sm text-center font-medium uppercase px-3 py-[2px] bg-[#9C7443] rounded-2xl"
+                onClick={() => setOpen(false)}
+                disabled={isAnimating}
+              >
+                Close
+              </button>
+            ) : (
+              <div
+                className="space-y-2 cursor-pointer hamburger absolute top-[45px] right-10 flex flex-col h-24 justify-start items-center"
+                onClick={() => {
+                  if (!isAnimating) setOpen(true); // Prevent toggling during animation
+                }}
+              >
+                <div className="h-[1px] w-8 bg-[#FBF0DA] line1"></div>
+                <div className="h-[1px] w-8 bg-[#FBF0DA] line2"></div>
+              </div>
+            )}
           </div>
-          <div className="w-full h-full ">
+          <div className="w-full h-full">
             <div className="w-full h-[40%]">
               <div className="tracking-tighter h-full overflow-hidden w-full flex flex-col justify-center items-center">
                 <h1 className="font-medium text-[8vw] pl-7 route-link">

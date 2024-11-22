@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Info from "./Info";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,12 +20,12 @@ const Footer = () => {
   useEffect(() => {
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: ".route",
+        trigger: ".router",
         start: "top 60%",
         end: "bottom 40%",
         scrub: false,
 
-        //markers: true,
+        // markers: true,
       },
     });
 
@@ -45,7 +46,7 @@ const Footer = () => {
             {data.map((item, index) => (
               <div
                 key={item.title}
-                className="flex gap-6 h-full items-center justify-start route"
+                className="flex gap-6 h-full items-center justify-start router"
                 ref={(el) => (linksRef.current[index] = el)}
               >
                 <span> ({index + 1})</span>
@@ -53,7 +54,6 @@ const Footer = () => {
                   <h1 className={`text-[2.5vw] uppercase route-link`}>
                     {item.title}
                   </h1>
-                  {/* <span className="group-hover:w-1/2 transition-all bg-red-300 duration-300 h-full  absolute  "></span> */}
                 </div>
               </div>
             ))}
@@ -68,43 +68,8 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="w-full h-[45%] flex justify-end">
-        <div className="w-[60%] h-full flex justify-evenly">
-          <div className="space-y-12">
-            <div>
-              <h1 className="uppercase">email</h1>
-              <h1 className="text-xs ">abcd@pk.com</h1>
-            </div>
-            <div>
-              <h1>Phone</h1>
-              <h1 className="text-xs ">+92 123456789</h1>
-            </div>
-            <div className="uppercase space-y-2">
-              <h1 className="uppercase">Social</h1>
-              <h1 className="text-xs ">instagram</h1>
-              <h1 className="text-xs ">twitter</h1>
-              <h1 className="text-xs ">whatsapp</h1>
-            </div>
-          </div>
-
-          <div className="space-y-12 capitalize">
-            <div>
-              <h1 className="uppercase ">office</h1>
-              <h1 className="text-xs ">lahore dha</h1>
-              <h1 className="text-xs ">buliding x block x</h1>
-            </div>
-            <div className="text-[#FBF0DA]/70 text-xs">
-              <h1>Monday-Friday</h1>
-              <h1 className="route-link">9:00 am-6:00 pm</h1>
-            </div>
-            <div className="text-[#FBF0DA]/70 text-xs">
-              <h1>139.8107° E</h1>
-              <h1>35.7100° N</h1>
-            </div>
-          </div>
-        </div>
-      </div>
-      <hr className="bg-[#FBF0DA] w-screen" />
+      <Info clas={"justify-end mt-6 "} />
+      <hr className="bg-[#FBF0DA] w-screen mt-10" />
       <div className="w-full h-[15%] font-sans flex justify-between text-xs items-center px-10 text-[#FBF0DA]/90">
         <div className="text-[#FBF0DA]">
           ©24 ARCHVIS-STUDIO – All rights reserved{" "}

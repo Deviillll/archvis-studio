@@ -8,6 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 const ServiceIntro = () => {
   const container = useRef(null);
   const image = useRef(null);
+  const text3 = useRef(null);
 
   useEffect(() => {
     const tl = gsap.timeline({
@@ -56,12 +57,17 @@ const ServiceIntro = () => {
     );
 
     // Animation for the third big text
-    tl.from(".text3 h1", {
-      y: 100,
-      opacity: 0,
-      duration: 1, // Slow down the animation
-      ease: "power2.out",
-    });
+    tl.from(
+      text3.current,
+      {
+        y: 100,
+        opacity: 0,
+        duration: 0.5, // Slow down the animation
+        ease: "power2.out",
+      },
+      "same"
+      // Adjust the overlap for smoother transition
+    );
   }, []);
 
   return (
@@ -91,7 +97,7 @@ const ServiceIntro = () => {
         </div>
       </div>
       <div className="w-full h-full flex justify-center gap-x-20 items-center overflow-hidden">
-        <div className="text-[12.5vw] text3">
+        <div className="text-[12.5vw] text3" ref={text3}>
           <h1 className="uppercase tracking-tighter">design</h1>
         </div>
         <div className="w-[25%]">

@@ -8,29 +8,59 @@ import "locomotive-scroll/dist/locomotive-scroll.css";
 
 import LocomotiveScroll from "locomotive-scroll";
 import TextAnimaion from "./TextAnimaion";
-import Projects from "./Projects";
 
 const ImagesSection = () => {
   const textRef = useRef(null);
 
   const container = useRef(null);
-  // const tl = gsap.timeline({
-  //   scrollTrigger: {
-  //     trigger: container.current,
-  //     start: "60% 26%",
-  //     end: "80% 40%",
-  //     scrub: 1,
-  //     markers: true,
-  //     pin: true,
-  //   },
-  // });
 
   useEffect(() => {
     const locomotiveScroll = new LocomotiveScroll();
-    // tl.to(".wrapper", {
-    //   translateY: "-90vh",
-    // });
   }, []);
+
+  useEffect(() => {
+    const elem = document.querySelectorAll(".elem");
+    elem.forEach((el) => {
+      let image = el.querySelector(".image");
+      let tl = gsap.timeline();
+      let xTransform = gsap.utils.random(-100, 100);
+
+      tl.set(
+        image,
+        { transformOrigin: `${xTransform < 0 ? 0 : "100%"}` },
+        "start"
+      )
+        .to(
+          image,
+          {
+            scale: 0,
+            ease: "none",
+            scrollTrigger: {
+              trigger: image,
+              start: "top top",
+              end: "bottom top",
+              scrub: true,
+            },
+          },
+          "start"
+        )
+        .to(
+          el,
+          {
+            xPercent: xTransform,
+            ease: "none",
+            scrollTrigger: {
+              trigger: image,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true,
+            },
+          },
+          "start"
+        );
+    });
+  }, []);
+
   return (
     <div
       ref={container}
@@ -40,11 +70,11 @@ const ImagesSection = () => {
       <div className="w-full h-full">
         {/* main image */}
         <div
-          className="w-[70vw] h-72 md:w-[35vw] md:h-[80vh]  mx-auto mt-[50%] md:mt-0 md:translate-y-[60%] "
+          className="w-[70vw] h-72 md:w-[35vw] md:h-[80vh]  mx-auto mt-[50%] md:mt-0 md:translate-y-[60%]  "
           data-scroll
           data-scroll-speed="0"
         >
-          <div className="bg-black/80 w-full h-full rounded-sm"></div>
+          <div className="bg-black/80 w-full h-full rounded-sm "></div>
         </div>
         <div
           id="text"
@@ -57,40 +87,38 @@ const ImagesSection = () => {
         {/* small imgs left and right */}
         <div className="w-full md:flex justify-between px-5">
           <div
-            className="w-32 h-32 md:w-52 md:h-52 rounded-sm "
+            className="w-32 h-32 md:w-52 md:h-52 rounded-sm elem "
             data-scroll
             data-scroll-speed="0.4"
           >
-            <div className="bg-black/80 w-full h-full mt-[70%] md:mt-0 md:translate-y-[60%]"></div>
+            <div className="bg-black/80 w-full h-full mt-[70%] md:mt-0 md:translate-y-[60%] image"></div>
           </div>
           <div
-            className="w-32 h-32 md:w-52 md:h-52 rounded-sm ml-[60%] md:ml-0"
+            className="w-32 h-32 md:w-52 md:h-52 rounded-sm ml-[60%] md:ml-0 elem"
             data-scroll
             data-scroll-speed="0.9"
           >
-            <div className="bg-black/80 w-full h-full mt-[70%] md:mt-0 md:translate-y-[60%]"></div>
+            <div className="bg-black/80 w-full h-full mt-[70%] md:mt-0 md:translate-y-[60%] image"></div>
           </div>
         </div>
 
         {/* last center img */}
 
         <div
-          className="w-52 h-52 ml-[45%] md:mx-0 md:ml-[70vw] translate-y-[80%]  "
+          className="w-52 h-52 ml-[45%] md:mx-0 md:ml-[70vw] translate-y-[80%] elem "
           data-scroll
           data-scroll-speed="0.6"
         >
-          <div className="bg-black/80 w-full h-full rounded-sm "></div>
+          <div className="bg-black/80 w-full h-full rounded-sm image "></div>
         </div>
 
         <div
-          className="w-52 h-52 ml-[15vw] translate-y-[80%]  "
+          className="w-52 h-52 ml-[15vw] translate-y-[80%] elem "
           data-scroll
           data-scroll-speed=".8"
         >
-          <div className="bg-black/80 w-full h-full rounded-sm "></div>
+          <div className="bg-black/80 w-full h-full rounded-sm image"></div>
         </div>
-
-        {/* <Projects /> */}
       </div>
     </div>
   );

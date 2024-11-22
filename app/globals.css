@@ -42,6 +42,32 @@ body {
     @apply w-0 right-0;
   }
 }
+
+.nav-link {
+  @apply relative   transition-all duration-300;
+
+  &::before {
+    @apply absolute left-0 bottom-0 h-[7px] w-0 bg-[#9C7443] transition-[width]  duration-1000 ease-in-out;
+    content: "";
+  }
+
+  &:hover::before {
+    @apply w-full;
+  }
+}
+.nav-link-after {
+  @apply transition-all duration-300;
+
+  &::after {
+    @apply absolute left-0 bottom-[2px] h-0 w-full  bg-[#D2C6B0] transition-[height]  duration-500 ease-in-out;
+    content: "";
+  }
+
+  &:hover::after {
+    @apply h-full;
+  }
+}
+
 .route-link {
   background: linear-gradient(to right, #fbf0da 50%, #a29685 50%);
   background-size: 200%;

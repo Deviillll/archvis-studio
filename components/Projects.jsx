@@ -34,17 +34,19 @@ const Projects = () => {
 
     gsap.to(sections, {
       xPercent: -100 * (sections.length - 1),
-      ease: "sine.easeInOut",
+      ease: "none",
       scrollTrigger: {
         trigger: projects,
         pin: true,
         scrub: 0.5,
         snap: {
-          snapTo: 1 / (sections.length - 1),
+          snapTo: (value) =>
+            Math.round(value / (1 / (sections.length - 1))) *
+            (1 / (sections.length - 1)),
           duration: { min: 0.3, max: 0.6 },
-          ease: "circ.inout",
+          ease: "circ.inOut",
         },
-        end: "+=5000", // Adjusted scroll distance
+        end: () => "+=" + projects.offsetWidth,
       },
     });
   }, []);
