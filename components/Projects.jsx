@@ -52,15 +52,15 @@ const Projects = () => {
   }, []);
 
   return (
-    <div className="w-screen overflow-x-hidden">
+    <div className="w-screen overflow-x-hidden ">
       <div
         ref={projectsRef}
-        className="w-[300vw] h-[100vh] bg-[#171717] flex overflow-x-hidden"
+        className="w-[300vw] h-[100vh] bg-[#171717] flex overflow-hidden"
       >
         {data.map((item, index) => (
-          <div key={item.title1} className="w-screen h-screen  relative">
+          <div key={item.title1} className="w-screen h-screen relative">
             <div
-              className={`w-screen h-screen bg-center bg-cover text-[#FBF0DA] flex flex-col md:flex-row justify-center md:justify-between items-center px-2 project relative`}
+              className={`w-screen h-full bg-center bg-cover text-[#FBF0DA] flex flex-col md:flex-row justify-center md:justify-between items-center px-2 project relative`}
               style={{ backgroundImage: `url(${item.bg})` }}
             >
               <div className="bg-black/60 absolute top-0 left-0 w-full h-full -z-10"></div>

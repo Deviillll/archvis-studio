@@ -4,7 +4,7 @@ const Info = ({ clas }) => {
   return (
     <div>
       <div className={`w-full h-[45%] flex ${clas}`}>
-        <div className="w-[60%] h-full flex justify-evenly">
+        <div className="w-[80%] md:w-[60%] h-full flex justify-between md:justify-evenly">
           <div className="space-y-12">
             <div>
               <h1 className="uppercase">email</h1>

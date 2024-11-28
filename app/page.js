@@ -1,3 +1,4 @@
+"use client";
 import About from "@/components/About";
 import AboutIntro from "@/components/AboutIntro";
 import Footer from "@/components/Footer";
@@ -8,8 +9,15 @@ import Projects from "@/components/Projects";
 import Quotes from "@/components/Quotes";
 import SaiseiStyleText from "@/components/SaiseiStyleText";
 import ServiceIntro from "@/components/ServiceIntro";
+import { useEffect } from "react";
+import "locomotive-scroll/dist/locomotive-scroll.css";
+
+import LocomotiveScroll from "locomotive-scroll";
 
 const Home = () => {
+  useEffect(() => {
+    const locomotiveScroll = new LocomotiveScroll();
+  }, []);
   return (
     <div className="">
       {/* hero  */}

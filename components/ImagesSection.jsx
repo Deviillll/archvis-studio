@@ -3,23 +3,18 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
-// Vendors
-import "locomotive-scroll/dist/locomotive-scroll.css";
 
-import LocomotiveScroll from "locomotive-scroll";
+// Vendors
 import TextAnimaion from "./TextAnimaion";
 
 const ImagesSection = () => {
   const textRef = useRef(null);
-
   const container = useRef(null);
 
   useEffect(() => {
-    const locomotiveScroll = new LocomotiveScroll();
-  }, []);
-
-  useEffect(() => {
     const elem = document.querySelectorAll(".elem");
+    const timelines = [];
+
     elem.forEach((el) => {
       let image = el.querySelector(".image");
       let tl = gsap.timeline();
@@ -58,28 +53,36 @@ const ImagesSection = () => {
           },
           "start"
         );
+
+      timelines.push(tl);
     });
+
+    return () => {
+      timelines.forEach((tl) => tl.kill());
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      gsap.killTweensOf(".elem");
+    };
   }, []);
 
   return (
     <div
       ref={container}
-      className="w-screen h-[300vh] overflow-hidden  "
+      className="w-screen h-[200vh] md:h-[300vh] overflow-hidden "
       data-scroll-container
     >
       <div className="w-full h-full">
         {/* main image */}
         <div
-          className="w-[70vw] h-72 md:w-[35vw] md:h-[80vh]  mx-auto mt-[50%] md:mt-0 md:translate-y-[60%]  "
+          className="w-[70vw] h-72 md:w-[35vw] md:h-[80vh] mx-auto md:mt-0 translate-y-[60%]"
           data-scroll
           data-scroll-speed="0"
         >
-          <div className="bg-black/80 w-full h-full rounded-sm "></div>
+          <div className="bg-black/80 w-full h-full rounded-sm"></div>
         </div>
         <div
           id="text"
           ref={textRef}
-          className="mx-auto flex flex-col justify-center  "
+          className="mx-auto flex flex-col justify-center"
         >
           <TextAnimaion />
         </div>
@@ -87,7 +90,7 @@ const ImagesSection = () => {
         {/* small imgs left and right */}
         <div className="w-full md:flex justify-between px-5">
           <div
-            className="w-32 h-32 md:w-52 md:h-52 rounded-sm elem "
+            className="w-32 h-32 md:w-52 md:h-52 rounded-sm elem"
             data-scroll
             data-scroll-speed="0.4"
           >
@@ -103,21 +106,36 @@ const ImagesSection = () => {
         </div>
 
         {/* last center img */}
-
         <div
-          className="w-52 h-52 ml-[45%] md:mx-0 md:ml-[70vw] translate-y-[80%] elem "
+          className="md:w-52 md:h-52 ml-[15%] w-40 h-40 md:mx-0 md:ml-[70vw] translate-y-[80%] elem"
           data-scroll
           data-scroll-speed="0.6"
         >
-          <div className="bg-black/80 w-full h-full rounded-sm image "></div>
+          <div className="bg-black/80 w-full h-full rounded-sm image"></div>
         </div>
 
         <div
-          className="w-52 h-52 ml-[15vw] translate-y-[80%] elem "
+          className="md:w-52 md:h-52 w-40 h-40 ml-40 md:ml-[15vw] translate-y-[80%] elem"
           data-scroll
           data-scroll-speed=".8"
         >
           <div className="bg-black/80 w-full h-full rounded-sm image"></div>
+        </div>
+        <div className="w-full md:flex justify-between px-5">
+          <div
+            className="w-32 h-32 md:w-52 md:h-52 rounded-sm elem"
+            data-scroll
+            data-scroll-speed="0.4"
+          >
+            <div className="bg-black/80 w-full h-full mt-[30%] md:mt-0 md:translate-y-[60%] image"></div>
+          </div>
+          <div
+            className="w-32 h-32 md:w-52 md:h-52 rounded-sm ml-[40%] md:ml-0 elem hidden md:block"
+            data-scroll
+            data-scroll-speed="0.9"
+          >
+            <div className="bg-black/80 w-full h-full mt-[40%] ml-16 md:ml-0 md:mt-0 md:translate-y-[60%] image"></div>
+          </div>
         </div>
       </div>
     </div>

@@ -25,15 +25,17 @@ const About = () => {
     [];
 
   return (
-    <div className="h-screen w-screen flex flex-col  justify-between md:flex-row md:justify-between pl-5 my-10 ">
-      <div className="h-full w-full md:w-[30%]  flex flex-col items-center  md:justify-around  ">
-        <div className="md:pl-10 md:my-auto tracking-tight h-28 space-y-1 w-[50%]  md:w-full">
-          <h1 className="font-medium text-4xl pl-5 ">آرچ وِز</h1>
-          <h1 className="font-normal text-2xl  ">(DEN THO) </h1>
-          <h1 className="font-extralight text-lg uppercase pl-3 ">Tradition</h1>
+    <div className="md:h-screen w-screen flex flex-col  justify-between md:flex-row md:justify-between pl-5 my-10 ">
+      <div className="h-full w-full md:w-[30%]  flex flex-col items-center justify-center md:justify-around  ">
+        <div className=" md:my-auto tracking-tight h-28 space-y-1 flex flex-col items-center md:items-start md:pl-10 w-full">
+          <h1 className="font-medium text-4xl pr-2 md:pr-0 ">آرچ وِز</h1>
+          <h1 className="font-normal text-2xl pr-2 md:pr-0 ">(DEN THO) </h1>
+          <h1 className="font-extralight text-lg uppercase  pr-2 md:pr-0">
+            Tradition
+          </h1>
         </div>
-        <div className="little quotes md:h-40 md:mt-28 flex flex-col md:justify-end w-[60%] md:w-full ">
-          <h1 className="uppercase text-3xl lg:text-6xl font-medium  tracking-tighter leading-8 md:leading-normal md:ml-6">
+        <div className=" md:h-40 md:mt-28 flex flex-col w-full justify-center items-center md:justify-end  ">
+          <h1 className="uppercase text-3xl lg:text-6xl font-medium w-[60%] text-center md:text-left md:w-full tracking-tighter leading-8 md:leading-normal md:ml-6">
             every line tells a story
           </h1>
         </div>
@@ -51,12 +53,12 @@ const About = () => {
             elit. Repellendus laboriosam quod veritatis accusamus quae.
           </p>
         </div>
-        <div className="mx-auto flex md:justify-center w-full md:mt-4  ">
+        <div className="mx-auto flex md:justify-center w-full mt-4  ">
           <button className="  uppercase text-white  bg-[#9C7443] px-6 py-2 rounded-3xl">
             about us
           </button>
         </div>
-        <div className=" md:translate-x-32 md:translate-y-20 md:w-[65%] w-full pr-5 md:pr-0 mt-8 md:mt-0">
+        <div className=" md:translate-x-32 md:translate-y-16 md:w-[65%] w-full pr-5 md:pr-0 mt-8 md:mt-0">
           <div className="bg-black/80 rounded-sm w-[0%] origin-left image h-48 md:h-32 "></div>
         </div>
       </div>

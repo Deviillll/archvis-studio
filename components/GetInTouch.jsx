@@ -32,7 +32,7 @@ const GetInTouch = () => {
       className="h-screen w-screen flex flex-col  justify-between md:flex-row md:justify-between pl-5 my-20 "
     >
       <div className="h-full w-full md:w-[30%]  flex flex-col  justify-between  ">
-        <div className=" mt-2 tracking-tight h-28 space-y-1 w-[50%]   md:w-full">
+        <div className=" mt-2 tracking-tight h-28 space-y-1 w-[50%]   md:w-full mx-auto md:mx-0">
           <h1 className="font-medium text-4xl pl-6 ">آرچ وِز</h1>
           <h1 className="font-normal text-2xl pl-2 ">(KEN CHIKU) </h1>
           <h1 className="font-extralight text-lg uppercase pl-2 ">
@@ -45,7 +45,7 @@ const GetInTouch = () => {
         </div>
       </div>
 
-      <div className="h-full w-full md:w-[27%] flex flex-col justify-center  ">
+      <div className="h-full w-full md:w-[27%] flex flex-col md:justify-center justify-around  ">
         <div className="little quotes md:h-40 md:mt-2 flex flex-col md:justify-between  w-[60%] md:w-full ">
           <h1 className="uppercase text-3xl lg:text-6xl font-medium  tracking-tighter leading-8 md:leading-normal md:ml-2">
             Craft Your Vision
@@ -59,12 +59,12 @@ const GetInTouch = () => {
           </p>
         </div>
         <div className=" flex md:justify-start w-full   ">
-          <button className="  uppercase text-white  bg-[#9C7443] px-6 py-2 rounded-3xl">
+          <button className="  uppercase text-white  bg-[#9C7443] md:px-6 px-4 py-2  rounded-3xl">
             get in touch
           </button>
         </div>
       </div>
-      <div className="h-full w-full  md:w-[40%] pr-5  mt-5">
+      <div className="h-full w-full  md:w-[40%] pr-5  mt-5 hidden md:block">
         <div className="w-[0%] h-52 md:h-[98%] rounded-sm origin-left introImage bg-black/80  "></div>
       </div>
     </div>

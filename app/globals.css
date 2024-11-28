@@ -1,6 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face {
+  font-family: "urdu";
+  src: url("/urdu.ttf");
+}
 
 :root {
   --background: #fbf0da;

@@ -52,11 +52,15 @@ const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  
 
   useEffect(() => {
-    if (open) {
-      setDisplayMenu(true);
-      const tl = gsap.timeline();
+    const mm=gsap.matchMedia()
+
+    mm.add("(min-width: 768px)",()=>{
+        if (open) {
+          setDisplayMenu(true);
+          const tl = gsap.timeline();
       tl.fromTo(
         leftRef.current,
         { width: 0 },
@@ -97,11 +101,63 @@ const Navbar = () => {
         { width: 0, duration: 1.5, ease: "expo.inOut" },
         "same"
       );
-    }
+        
+
+        }
+      })
+      mm.add("(max-width: 767px)",()=>{
+        if (open) {
+          setDisplayMenu(true);
+          const tl = gsap.timeline();
+      tl.fromTo(
+        leftRef.current,
+        { width: 0 },
+        { width: "100%", duration: 2, ease: "expo.inOut" },
+        "same"
+      )
+        .fromTo(
+          rightRef.current,
+          { width: 0 },
+          { width: "100%", duration: 2, ease: "expo.inOut" },
+          "same"
+        )
+        .from(
+          linksRef.current,
+          {
+            delay: 1,
+            y: 80,
+            stagger: 0.1,
+            duration: 1,
+            ease: "sine.inOut",
+          },
+          "same"
+        );
+    } else {
+      const tl = gsap.timeline({
+        onComplete: () => {
+          setDisplayMenu(false)
+        },
+      });
+      tl.fromTo(
+        leftRef.current,
+        { width: "100%" },
+        { width: 0, duration: 1.5, ease: "expo.inOut" },
+        "same"
+      ).fromTo(
+        rightRef.current,
+        { width: "100%" },
+        { width: 0, duration: 1.5, ease: "expo.inOut" },
+        "same"
+      );
+        
+
+        }
+      })
+      
   }, [open]);
 
   return (
-    <div className="relative">
+    <nav className="relative">
       <div>
         <div
           className={`flex w-screen text-[#FBF0DA] fixed z-50 mix-blend-difference px-5 items-center h-28 ease-in-out transition-transform duration-300 ${
@@ -126,20 +182,20 @@ const Navbar = () => {
       </div>
       {/* left and right divs */}
       <div
-        className={`w-screen h-screen fixed top-0 left-0 z-50 flex justify-between ${
+        className={`w-screen h-screen overflow-hidden fixed top-0 left-0 z-50 flex flex-col md:flex-row  justify-between ${
           displayMenu ? "visible" : "invisible"
         }`}
       >
         <div
           ref={leftRef}
-          className="bg-[#FBF0DA] h-full flex flex-col justify-center origin-left"
+          className="bg-[#FBF0DA] h-1/2 md:h-full flex flex-col justify-between  md:justify-center origin-left"
         >
           <div>
             {data.map((item, index) => (
               <div
                 ref={(el) => (containerRef.current[index] = el)}
                 key={item.title}
-                className={`h-24 nav-link group route overflow-hidden nav-link-after`}
+                className={`md:h-24 nav-link group route overflow-hidden nav-link-after`}
               >
                 <div
                   ref={(el) => (linksRef.current[index] = el)}
@@ -167,7 +223,7 @@ const Navbar = () => {
         </div>
         <div
           ref={rightRef}
-          className="bg-[#1E1005] text-[#FBF0DA] h-full origin-right relative"
+          className="bg-[#1E1005] text-[#FBF0DA]  h-full origin-right relative overflow-hidden "
         >
           <div className="translate-y-8 translate-x-[80%]">
             <button
@@ -178,9 +234,9 @@ const Navbar = () => {
             </button>
           </div>
           <div className="w-full h-full ">
-            <div className="w-full h-[40%]">
-              <div className="tracking-tighter h-full overflow-hidden w-full flex flex-col justify-center items-center">
-                <h1 className="font-medium text-[8vw] pl-7 route-link">
+            <div className="w-full h-[40%] ">
+              <div className="tracking-tighter h-full  w-full flex flex-col justify-center items-center">
+                <h1 className="font-medium text-[20vw] md:text-[8vw] pl-7 route-link">
                   (آرچ وِز)
                 </h1>
               </div>
@@ -191,7 +247,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-    </div>
+    </nav>
   );
 };
 

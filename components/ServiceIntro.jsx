@@ -72,35 +72,35 @@ const ServiceIntro = () => {
 
   return (
     <div
-      className="w-screen h-screen flex flex-col py-10 justify-center items-center"
+      className="w-screen h-screen flex flex-col  justify-center items-center  "
       ref={container}
     >
-      <div className="w-full h-full flex justify-between items-center overflow-hidden">
-        <div className="md:pl-28 md:mb-8 tracking-tighter h-32 space-y-1 w-[23%]">
-          <h1 className="font-medium text-4xl pl-5">آرچ وِز</h1>
-          <h1 className="font-normal text-2xl uppercase">(Fu ku mu)</h1>
-          <h1 className="font-extralight text-lg uppercase pl-3">Tradition</h1>
+      <div className="w-full h-auto md:h-full flex flex-col md:flex-row justify-center md:justify-between items-center overflow-hidden ">
+        <div className="md:pl-28 md:mb-8 tracking-tighter md:h-32  w-[23%] ">
+          <h1 className="font-medium md:text-4xl md:pl-5 pl-7">آرچ وِز</h1>
+          <h1 className="font-normal md:text-2xl uppercase">(Fu ku mu)</h1>
+          <h1 className="font-extralight md:text-lg uppercase md:pl-3">Tradition</h1>
         </div>
-        <div className="uppercase text-[12.5vw] flex-1 text1">
+        <div className="uppercase md:text-[12.5vw] text-[16vw] md:flex-1 text1 ">
           <h1 className="tracking-tight">Precision</h1>
         </div>
       </div>
-      <div className="w-full h-full uppercase flex items-center justify-center gap-x-16 text-[12.5vw] overflow-hidden">
-        <div className="text2">
+      <div className="w-full  h-auto md:h-full uppercase flex items-center justify-center md:justify-center gap-x-4 md:gap-x-16 md:text-[12.5vw] text-[16vw] overflow-hidden ">
+        <div className="text2 ">
           <h1 className="tracking-tighter">IN</h1>
         </div>
-        <div className="w-72 h-[120px]  mb-4 origin-left">
+        <div className="md:w-72 md:h-[120px] w-24 h-12  mb-4 origin-left ">
           <div ref={image} className="w-full h-full image bg-black/80"></div>
         </div>
-        <div className="text2">
+        <div className="text2  ">
           <h1 className="tracking-tighter">Every</h1>
         </div>
       </div>
-      <div className="w-full h-full flex justify-center gap-x-20 items-center overflow-hidden">
-        <div className="text-[12.5vw] text3" ref={text3}>
+      <div className="w-full h-auto md:h-full flex flex-col  md:flex-row justify-center gap-x-20 items-center overflow-hidden ">
+        <div className="md:text-[12.5vw] text-[16vw] text3" ref={text3}>
           <h1 className="uppercase tracking-tighter">design</h1>
         </div>
-        <div className="w-[25%]">
+        <div className="w-[75%] md:w-[25%] px-2 md:px-0 text-center md:text-left">
           <div>
             <p className="tracking-tight font-serif font-normal text-sm md:text-[18px]">
               Each Saisei project blends custom solutions with sustainable
@@ -108,8 +108,8 @@ const ServiceIntro = () => {
               respecting the planet.
             </p>
           </div>
-          <div className="mx-auto w-full md:mt-6">
-            <button className="uppercase text-white bg-[#9C7443] px-6 py-2 rounded-3xl">
+          <div className="mx-auto w-full mt-10 md:mt-6">
+            <button className="uppercase text-white bg-[#9C7443] md:px-6 px-4 md:py-2 py-1 rounded-3xl">
               our service
             </button>
           </div>

@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        customUrdu: ["urdu"],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
